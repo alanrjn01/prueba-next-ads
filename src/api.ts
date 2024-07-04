@@ -161,7 +161,7 @@ const api = {
     return restaurants;
   },
   fetch: async (id: Restaurant["id"]): Promise<Restaurant> => {
-    const [, ...data] = await fetch(`${process.env.API_SHEETS}`)
+    const [, ...data] = await fetch(`${process.env.NEXT_PUBLIC_API_SHEETS}`)
       .then((res) => res.text())
       .then((text) => text.split("\n"));
 
