@@ -2,15 +2,11 @@ import Link from "next/link";
 
 import api from "@/api";
 
-import SearchBox from "./components/SearchBox";
-
 export default async function HomePage() {
   const restaurants = await api.search();
 
   return (
     <section>
-      <SearchBox />
-
       <section className="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3">
         {restaurants.map((restaurant) => {
           return (
