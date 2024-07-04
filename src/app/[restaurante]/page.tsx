@@ -1,9 +1,10 @@
-import api from "@/api";
 import Link from "next/link";
 
-let restaurant = null
+import api from "@/api";
 
-export async function generateMetadata({ params: { restaurante } }: { params: { restaurante: string } }) {
+let restaurant = null;
+
+export async function generateMetadata({params: {restaurante}}: {params: {restaurante: string}}) {
   restaurant = await api.fetch(restaurante);
 
   return {
@@ -12,7 +13,11 @@ export async function generateMetadata({ params: { restaurante } }: { params: { 
   };
 }
 
-export default async function RestaurantPage({ params: { restaurante } }: { params: { restaurante: string } }) {
+export default async function RestaurantPage({
+  params: {restaurante},
+}: {
+  params: {restaurante: string};
+}) {
   restaurant = await api.fetch(restaurante);
 
   return (
@@ -32,7 +37,7 @@ export default async function RestaurantPage({ params: { restaurante } }: { para
       </h2>
       <p className="opacity-90">{restaurant.description}</p>
       <br />
-      <Link href={"/"}>Volver a la página de inicio 🔙</Link>
+      <Link href="/">Volver a la página de inicio 🔙</Link>
     </article>
   );
 }
