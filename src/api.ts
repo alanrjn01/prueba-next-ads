@@ -187,11 +187,9 @@ const api = {
 
     return restaurant;
   },
-  search: async (query: string): Promise<Restaurant[]> => {
+  search: async (): Promise<Restaurant[]> => {
     // Obtenemos los restaurantes
     const results = await api.list().then();
-
-    query.charAt(3);
 
     // Los retornamos
     return results;
